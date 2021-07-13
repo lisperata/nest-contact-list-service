@@ -6,6 +6,8 @@ import {
   HttpStatus,
   Patch,
   Post,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { DocumentType } from '@typegoose/typegoose/lib/types';
 import { CONTACT_NOT_FOUND } from './contact.constants';
@@ -17,6 +19,7 @@ import { UpdateContactDto } from './dto/update-contact.dto';
 @Controller('contact')
 export class ContactController {
   constructor(private readonly contactService: ContactService) {}
+  @UsePipes(new ValidationPipe)
   @Post()
   async addContact(
     @Body() dto: CreateContactDto,

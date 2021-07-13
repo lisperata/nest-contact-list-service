@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  HttpCode,
   HttpException,
   HttpStatus,
   Patch,
@@ -27,7 +28,7 @@ export class ListController {
   async getAllLists(): Promise<DocumentType<ListModel>[]> {
     return this.listService.getAll();
   }
-
+  @HttpCode(200)
   @Post('lists')
   async getContactsByList(
     @Body() dto: FindContactsOfList,
