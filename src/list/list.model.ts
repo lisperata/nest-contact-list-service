@@ -2,6 +2,7 @@ import { prop } from '@typegoose/typegoose';
 import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 import { ObjectId } from 'mongodb';
 import * as MUUID from 'uuid-mongodb';
+
 import { IListModel } from './list.interfaces';
 
 export class ListModel extends TimeStamps implements IListModel {

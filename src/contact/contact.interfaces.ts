@@ -1,4 +1,3 @@
-import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 import { ObjectId } from 'mongodb';
 
 export interface IContactModel {

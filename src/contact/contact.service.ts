@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ModelType, DocumentType } from '@typegoose/typegoose/lib/types';
 import { InjectModel } from 'nestjs-typegoose';
+
 import { NewContactInPatchType } from './contact.interfaces';
 import { ContactModel } from './contact.model';
 import { CreateContactDto } from './dto/create-contact.dto';
@@ -29,8 +30,12 @@ export class ContactService {
     const { _id, name, email } = dto;
 
     const newContact: NewContactInPatchType = {};
-    name ? (newContact.name = name) : '';
-    email ? (newContact.email = email) : '';
+    if (name) {
+      newContact.name = name;
+    }
+    if (email) {
+      newContact.email = email;
+    }
 
     return this.contactModel
       .findOneAndUpdate(

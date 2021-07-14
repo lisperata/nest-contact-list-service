@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ModelType, DocumentType } from '@typegoose/typegoose/lib/types';
 import { InjectModel } from 'nestjs-typegoose';
+
 import { AddContactToListDto } from './dto/add-contact-to-list.dto';
 import { CreateListDto } from './dto/create-list.dto';
 import { ListModel } from './list.model';

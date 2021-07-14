@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { CreateListDto } from './dto/create-list.dto';
 import { DocumentType } from '@typegoose/typegoose/lib/types';
+
 import { ListService } from './list.service';
 import { ListModel } from './list.model';
 import { AddContactToListDto } from './dto/add-contact-to-list.dto';
@@ -28,6 +29,7 @@ export class ListController {
   async getAllLists(): Promise<DocumentType<ListModel>[]> {
     return this.listService.getAll();
   }
+
   @HttpCode(200)
   @Post('lists')
   async getContactsByList(

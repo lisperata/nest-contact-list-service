@@ -10,17 +10,15 @@ export const getMongoConfig = async (
   };
 };
 
-const getMongoString = (configService: ConfigService) =>
-  'mongodb://' +
-  configService.get('MONGO_LOGIN') +
-  ':' +
-  configService.get('MONGO_PASSWORD') +
-  '@' +
-  configService.get('MONGO_HOST') +
-  ':' +
-  configService.get('MONGO_PORT') +
-  '/' +
-  configService.get('MONGO_AUTHDB');
+const getMongoString = (configService: ConfigService) => {
+  const LOGIN = configService.get('MONGO_LOGIN');
+  const PASSWORD = configService.get('MONGO_PASSWORD');
+  const HOST = configService.get('MONGO_HOST');
+  const PORT = configService.get('MONGO_PORT');
+  const AUTH_DB = configService.get('MONGO_AUTHDB');
+
+  return `mongodb://${LOGIN}:${PASSWORD}@${HOST}:${PORT}/${AUTH_DB}`;
+};
 
 const getMongoOptions = () => ({
   useNewUrlParser: true,
