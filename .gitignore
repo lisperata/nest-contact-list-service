@@ -10,6 +10,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .env
+/mongo-data-4.4
 # OS
 .DS_Store
 

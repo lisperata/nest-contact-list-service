@@ -6,16 +6,7 @@ import { ListService } from './list.service';
 import { ListController } from './list.controller';
 
 @Module({
-  imports: [
-    TypegooseModule.forFeature([
-      {
-        typegooseClass: ListModel,
-        schemaOptions: {
-          collection: 'List',
-        },
-      },
-    ]),
-  ],
+  imports: [TypegooseModule.forFeature([ListModel])],
   providers: [ListService],
   controllers: [ListController],
 })
